@@ -2,6 +2,7 @@ function Dibujante(container){
 	var self = this;
 	this.table = container;
 	this.usuarios=[];
+	
 	this.dibujarUsuario = function(usuario){
 		var usuarioSelected = self.usuarios[usuario.nombre];
 		var row = self.getRow(usuario);
@@ -17,9 +18,11 @@ function Dibujante(container){
 			});
 		}
 	};
+	
 	this.getRow = function(usuario){
 		var html = ["<td class='nombre'>",usuario.nombre,"</td><td class='apellido'>",usuario.apellido,"</td>"].join("");
 		return html;
 	}
+	
 	return this;
 }
