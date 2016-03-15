@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		td, table, th{
+			border:1px solid black;
+		}
+		td{
+			text-align:left;
+		}
+	</style>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="Dibujante.js"></script>
+	<script src="Usuario.js"></script>
+	<script>
+	var dibujante;
+	$(function(){
+		dibujante = new Dibujante($("#myTable"));
+		var guardar = function(){
+			var usuario = new Usuario($("#form"));
+			dibujante.dibujarUsuario(usuario);
+			$("input").val("");
+		};
+		$("input").keypress(function(e) {
+			if(e.which == 13) {
+				guardar();
+			}
+		});
+	});
+	</script>
+</head>
+<body>
+	<table id="form">
+		<tr>
+			<td>Nombre</td>
+			<td><input class="nombre" type="text"/></td>
+		<tr>
+			<td>Apellido</td>
+			<td><input class="apellido" type="text"/></td>
+		</tr>
+	</table>
+	</br></br>
+	<table id="myTable" class="b">
+		<tr>
+			<th>Nombre</th>
+			<th>Apellido</th>
+		</tr>
+	</table>
+</body>
+</html>
